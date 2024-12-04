@@ -1,33 +1,51 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-
-<button onclick="MyWindow1()">Click here to start</button>
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click to Start</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+        body:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
 </head>
+<body onclick="MyWindow1()">
+    Click here to start
+    <script>
+        function MyWindow1() {
+            // Open a new window
+            var win = window.open("", "_blank");
 
-<script>
+            if (win) {
+                // Create an iframe in the new window
+                var iframe = win.document.createElement('iframe');
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.style.border = "none";
+                iframe.src = "./Main.html";
 
-(url);
+                // Append iframe to the body of the new window
+                win.document.body.style.margin = "0";
+                win.document.body.style.padding = "0";
+                win.document.body.appendChild(iframe);
 
-var newWin = window.open
-function MyWindow1(){
-
-var win = window.open()
-var iframe = win.document.createElement('iframe')
-iframe.style.width = "100%";
-iframe.style.height = "100%";
-iframe.style.border = "none";
-iframe.src = "./Games.html";
-win.document.body.appendChild(iframe)
-location.replace("https://www.classroom.google.com/")
-}
-
-
-
-</script>
-
+                // Redirect the current window
+                location.replace("https://www.google.com/");
+            } else {
+                alert("Popup blocked. Please allow popups for this site.");
+            }
+        }
+    </script>
+</body>
 </html>
